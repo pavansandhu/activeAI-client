@@ -7,7 +7,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/homepage" element={<HomePage />} />
           <Route path="/workout" element={<WorkoutSelection />} />
           <Route path="/workout/display" element={<WorkoutDisplay />} />
           <Route path="/workout/player" element={<WorkoutPlayer />} />

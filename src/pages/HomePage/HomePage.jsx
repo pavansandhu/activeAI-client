@@ -4,8 +4,7 @@ import Header from "../../components/Header/Header";
 function HomePage() {
   return (
     <>
-      <p>this is a test</p>
-      {/* <Header /> */}
+      <h1>this is a test</h1>
     </>
   );
 }
