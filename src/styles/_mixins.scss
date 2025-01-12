@@ -1,11 +1,47 @@
+@use "./variables" as *;
+@use "./fonts" as *;
+
+// =============================
+// Mixins for screen breakpoints
+// =============================
+
 @mixin tablet {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet-breakpoint) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: $desktop-breakpoint) {
     @content;
   }
 }
+
+// =============================
+// Mixins to reset default styles
+// =============================
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+// =============================
+// Mixins for display
+// =============================
+
+// Common flex box settings
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Example usage:
+// @include flex-center ==> default centering
+// @include flex-center(column, spacebetween, flex-start) ==> change direction, justify and align
+// @include flex-center($direction: column) ==> change only direction

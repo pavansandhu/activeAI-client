@@ -1,3 +1,7 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
+
 .header {
   height: 5rem;
   background-color: #e0f987;
@@ -5,4 +9,25 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+}
+
+.button__home-container {
+  display: flex;
+}
+
+.button__header {
+  background-color: $primary-accent;
+  border: none;
+  margin: 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+.button__text {
+  color: $secondary-text;
+  text-wrap: nowrap;
+  padding: 0.5rem;
+}
+
+.button__loggedin-container {
+  display: flex;
 }
