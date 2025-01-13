@@ -1,11 +1,14 @@
 import "./WorkoutSelection.scss";
 import Header from "../../components/Header/Header";
+import WorkoutSelectionForm from "../../components/WorkoutSelectionForm/WorkoutSelectionForm";
 
 function WorkoutSelection() {
   return (
     <>
-      <Header />
-      <p>This is the workout selection page</p>
+      <div>
+        <Header />
+        <WorkoutSelectionForm />
+      </div>
     </>
   );
 }
