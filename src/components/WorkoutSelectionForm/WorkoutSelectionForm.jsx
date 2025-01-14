@@ -11,17 +11,28 @@ function WorkoutSelectionForm() {
     additionalInfo: "",
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted!");
-  };
-
   const handleFormDataChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+    try {
+      const response = await axios.post(
+        `http://localhost:8080/workout/request`,
+        formData
+      );
+      console.log("Workout data sent successfully:", response);
+    } catch (error) {
+      console.log(error);
+      alert("Error sending workout request");
+    }
   };
 
   return (
