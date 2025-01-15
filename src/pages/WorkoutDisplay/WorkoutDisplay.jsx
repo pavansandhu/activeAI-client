@@ -1,5 +1,6 @@
 // import "WorkoutDisplay.scss";
 import Header from "../../components/Header/Header";
+import { useState } from "react";
 
 function WorkoutDisplay() {
   return (

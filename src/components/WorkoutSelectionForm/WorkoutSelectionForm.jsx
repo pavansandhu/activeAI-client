@@ -2,7 +2,7 @@ import "./WorkoutSelectionForm.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function WorkoutSelectionForm() {
+function WorkoutSelectionForm(props) {
   const [formData, setFormData] = useState({
     exerciseType: "",
     exerciseDuration: "",
@@ -10,6 +10,7 @@ function WorkoutSelectionForm() {
     workoutIntensity: "",
     additionalInfo: "",
   });
+  const [workoutData, setWorkoutData] = useState(null);
 
   const handleFormDataChange = (event) => {
     const { name, value } = event.target;
@@ -29,11 +30,14 @@ function WorkoutSelectionForm() {
         formData
       );
       console.log("Workout data sent successfully:", response);
+      setWorkoutData(response.data);
     } catch (error) {
       console.log(error);
       alert("Error sending workout request");
     }
   };
+
+  // console.log(workoutData);
 
   return (
     <>
