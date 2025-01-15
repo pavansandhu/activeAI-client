@@ -1,13 +1,10 @@
-// import "WorkoutDisplay.scss";
-import Header from "../../components/Header/Header";
+import "./WorkoutDisplayPortal.scss";
 import { useLocation } from "react-router-dom";
 import WorkoutDisplayList from "../../components/WorkoutDisplayList/WorkoutDisplayList";
 
 import { useState } from "react";
 
-function WorkoutDisplay(props) {
-  const [showModal, setShowModal] = useState(false);
-
+function WorkoutDisplayPortal(props) {
   const location = useLocation();
   const data = location.state;
   console.log(data.workoutData);
@@ -50,4 +47,4 @@ function WorkoutDisplay(props) {
   );
 }
 
-export default WorkoutDisplay;
+export default WorkoutDisplayPortal;

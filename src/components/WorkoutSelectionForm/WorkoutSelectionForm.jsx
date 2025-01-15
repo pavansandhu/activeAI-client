@@ -1,8 +1,10 @@
 import "./WorkoutSelectionForm.scss";
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function WorkoutSelectionForm(props) {
+function WorkoutSelectionForm() {
   const [formData, setFormData] = useState({
     exerciseType: "",
     exerciseDuration: "",
@@ -20,9 +22,10 @@ function WorkoutSelectionForm(props) {
     }));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     console.log(formData);
     try {
       const response = await axios.post(
@@ -30,14 +33,13 @@ function WorkoutSelectionForm(props) {
         formData
       );
       console.log("Workout data sent successfully:", response);
-      setWorkoutData(response.data);
+      // setWorkoutData(response.data);
+      navigate("/displayworkout", { state: { workoutData: response.data } });
     } catch (error) {
       console.log(error);
       alert("Error sending workout request");
     }
   };
-
-  // console.log(workoutData);
 
   return (
     <>
@@ -130,7 +132,7 @@ function WorkoutSelectionForm(props) {
           </label>
           <section className="wo-form__cta">
             <button className="wo-form__generate" type="submit">
-              <h3 className="wo-form__info">Generate</h3>
+              <h3 className="wo-form__info">Generate Workout</h3>
             </button>
           </section>
         </form>

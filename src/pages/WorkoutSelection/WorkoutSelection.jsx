@@ -1,7 +1,7 @@
 import "./WorkoutSelection.scss";
 import Header from "../../components/Header/Header";
 import WorkoutSelectionForm from "../../components/WorkoutSelectionForm/WorkoutSelectionForm";
-import WorkoutDisplayList from "../../components/WorkoutDisplayList/WorkoutDisplayList";
+import WorkoutDisplay from "../WorkoutDisplay/WorkoutDisplay";
 
 function WorkoutSelection() {
   return (
@@ -9,7 +9,6 @@ function WorkoutSelection() {
       <div>
         <Header />
         <WorkoutSelectionForm />
-        <WorkoutDisplayList />
       </div>
     </>
   );
