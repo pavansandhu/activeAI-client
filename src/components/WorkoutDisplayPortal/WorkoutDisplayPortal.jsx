@@ -4,18 +4,16 @@ import WorkoutDisplayList from "../../components/WorkoutDisplayList/WorkoutDispl
 
 import { useState } from "react";
 
-function WorkoutDisplayPortal(props) {
-  const location = useLocation();
-  const data = location.state;
-  console.log(data.workoutData);
+function WorkoutDisplayPortal(props, { onClose }) {
+  console.log(props);
 
-  const { workoutTitle, warmup, mainSets, cooldown, additionalNotes } =
-    data.workoutData;
-  console.log(mainSets[0].intervals[0]);
+  const data = props.workoutData;
+  console.log(data);
+
+  const { workoutTitle, warmup, mainSets, cooldown, additionalNotes } = data;
 
   return (
     <>
-      <Header />
       <div className="wd__container">
         <h1>{workoutTitle.title}</h1>
         <h2>Warmup</h2>
@@ -42,6 +40,9 @@ function WorkoutDisplayPortal(props) {
       </div>
       <button className="startworkout" onClick={() => setShowModal(true)}>
         Start workout
+      </button>
+      <button className="close" onClick={onClose}>
+        Close
       </button>
     </>
   );

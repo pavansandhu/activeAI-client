@@ -6,8 +6,6 @@ import WorkoutDisplayList from "../../components/WorkoutDisplayList/WorkoutDispl
 import { useState } from "react";
 
 function WorkoutDisplay(props) {
-  const [showModal, setShowModal] = useState(false);
-
   const location = useLocation();
   const data = location.state;
   console.log(data.workoutData);
