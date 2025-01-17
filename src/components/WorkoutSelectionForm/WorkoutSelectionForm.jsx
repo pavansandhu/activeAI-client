@@ -14,7 +14,7 @@ function WorkoutSelectionForm() {
     additionalInfo: "",
   });
   const [workoutData, setWorkoutData] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleFormDataChange = (event) => {
     const { name, value } = event.target;
@@ -24,7 +24,7 @@ function WorkoutSelectionForm() {
     }));
   };
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,16 +36,12 @@ function WorkoutSelectionForm() {
       );
       console.log("Workout data sent successfully:", response);
       setWorkoutData(response.data);
+      setIsModalOpen(true);
       // navigate("/displayworkout", { state: { workoutData: response.data } });//
     } catch (error) {
       console.log(error);
       alert("Error sending workout request");
     }
-  };
-
-  const handleButtonClick = (event) => {
-    event.stopPropagation();
-    setIsModalOpen(true);
   };
 
   // const { workoutTitle, warmup, mainSets, cooldown, additionalNotes } =
@@ -143,18 +139,25 @@ function WorkoutSelectionForm() {
               />
             </label>
             <section className="wo-form__cta">
-              <button
-                className="wo-form__generate"
-                type="submit"
-                onClick={() => setShowModal(true)}
-              >
+              <button className="wo-form__generate" type="submit">
                 <h3 className="wo-form__info">Generate Workout</h3>
               </button>
             </section>
           </form>
         </div>
         <section className="workoutdisplay__container">
-          <WorkoutDisplayPortal workoutData={workoutData} />
+          {isModalOpen &&
+            createPortal(
+              <WorkoutDisplayPortal
+                onClose={() => {
+                  console.log("Before close:", isModalOpen);
+                  setIsModalOpen(false);
+                  console.log("After close:", isModalOpen);
+                }}
+                workoutData={workoutData}
+              />,
+              document.body
+            )}
         </section>
       </div>
     </>
