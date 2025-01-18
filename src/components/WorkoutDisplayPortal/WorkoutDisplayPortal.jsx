@@ -48,13 +48,14 @@ function WorkoutDisplayPortal({ workoutData, onClose }) {
         <div className="wd__notes-container">
           <p className="wd__additional-text">{additionalNotes.description}</p>
         </div>
-      </div>
-      <button className="startworkout" onClick={handleStartClick}>
-        Start workout
-      </button>
-      <div className="modal" onClick={onClose}>
-        <div className="modal__content" onClick={(e) => e.stopPropagation()}>
-          <button onClick={onClose}>Close</button>
+
+        <button className="startworkout" onClick={handleStartClick}>
+          Start workout
+        </button>
+        <div className="modal" onClick={onClose}>
+          <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+            <button onClick={onClose}>Close</button>
+          </div>
         </div>
       </div>
     </>

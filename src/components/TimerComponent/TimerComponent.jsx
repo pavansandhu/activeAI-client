@@ -92,7 +92,7 @@ function TimerComponent({ workout }) {
       <h2>{workout[currentStep].description}</h2>
       <div className="timeranimationContainer">
         <h3>{formatTime(displayTime)}</h3>
-        <CircularProgressbar value={60} text={`${60}%`} />
+        {/* <CircularProgressbar value={60} text={`${60}%`} /> */}
       </div>
       <button onClick={toggleWorkout} className="start">
         Start/Pause
@@ -101,7 +101,7 @@ function TimerComponent({ workout }) {
         Next Step
       </button>
       <button onClick={handleReset} className="reset">
-        Reset
+        Reset Step
       </button>
     </div>
   );

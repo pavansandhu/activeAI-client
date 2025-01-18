@@ -7,7 +7,6 @@ function WorkoutSelection() {
   return (
     <>
       <div>
-        <Header />
         <WorkoutSelectionForm />
       </div>
     </>
