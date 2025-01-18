@@ -1,2 +1,56 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/fonts" as *;
+
+.heroImage__section {
+  background-image: linear-gradient(
+      rgba(50, 50, 50, 0.5),
+      rgba(50, 50, 50, 0.5)
+    ),
+    url(../../assets/images/image_fx_cyclist.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 65vh;
+}
+
+.heroImage__textbox {
+  padding: 6rem;
+  width: 50%;
+  color: white;
+}
+
+.heroImage__header {
+  padding: 1rem;
+}
+
+.heroImage__text {
+  padding: 1rem;
+}
+
+.heroImage__text-join {
+  padding: 1rem;
+}
+
+.background__section {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.features__section {
+  margin: 1rem;
+
+  @include flex-center($direction: column, $justify: center, $align: center);
+}
+
+.features__container {
+  @include flex-center($direction: row, $justify: center, $align: center);
+}
+.features__details {
+  box-shadow: 4.4px 4.4px 4.4px hsl(0deg 0% 0% / 0.36);
+  border: 1px solid grey;
+  width: 33%;
+  height: 20rem;
+  padding: 1rem;
+}
