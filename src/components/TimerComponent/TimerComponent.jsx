@@ -2,6 +2,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useRef, useEffect, useState, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+// import ProgressCircle from "../ProgressCircle/ProgressCircle";
 
 function TimerComponent({ workout }) {
   const [currentStep, setCurrentStep] = useState(0);
@@ -82,12 +83,16 @@ function TimerComponent({ workout }) {
     return `${minutes}:${seconds}`;
   }
 
+  const percentage = Math.round(timeRemaining.current / timerRef.current);
+  console.log(percentage);
+
   return (
     <div>
       <h2>{workout[currentStep].name}</h2>
       <h2>{workout[currentStep].description}</h2>
       <div className="timeranimationContainer">
         <h3>{formatTime(displayTime)}</h3>
+        <CircularProgressbar value={60} text={`${60}%`} />
       </div>
       <button onClick={toggleWorkout} className="start">
         Start/Pause
