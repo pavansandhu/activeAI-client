@@ -28,7 +28,7 @@ function WorkoutSelectionForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     try {
       const response = await axios.post(
         `http://localhost:8080/workout/request`,

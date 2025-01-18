@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import WorkoutSelection from "./pages/WorkoutSelection/WorkoutSelection";
 import WorkoutDisplay from "./pages/WorkoutDisplay/WorkoutDisplay";
 import WorkoutTimer from "./pages/WorkoutTimer/WorkoutTimer";
+import WorkoutComplete from "./pages/WorkoutComplete/WorkoutComplete";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/selectworkout" element={<WorkoutSelection />} />
         <Route path="/displayworkout" element={<WorkoutDisplay />} />
         <Route path="/startworkout" element={<WorkoutTimer />} />
+        <Route path="/endworkout" element={<WorkoutComplete />} />
       </Routes>
     </BrowserRouter>
   );

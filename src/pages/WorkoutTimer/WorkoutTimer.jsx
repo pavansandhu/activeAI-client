@@ -4,6 +4,7 @@ function WorkoutTimer() {
   return (
     <div>
       <p>test test test</p>
+
       <Timer />
     </div>
   );

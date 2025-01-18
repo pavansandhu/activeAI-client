@@ -10,7 +10,7 @@ function WorkoutDisplayPortal({ workoutData, onClose }) {
   if (!workoutData) {
     return null;
   }
-  console.log(workoutData);
+  // console.log(workoutData);
 
   const { workoutTitle, warmup, mainSets, cooldown, additionalNotes } =
     workoutData;

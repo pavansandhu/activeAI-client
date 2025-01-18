@@ -1,53 +1,58 @@
 import "./Timer.scss";
-import { useEffect, useState } from "react";
+import TimerComponent from "../TimerComponent/TimerComponent";
+import { useRef, useEffect, useState, useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import WorkoutDisplayPortal from "../WorkoutDisplayPortal/WorkoutDisplayPortal";
 
 function Timer() {
+  //getting data from workout display
+
   const location = useLocation();
   const data = location.state;
-  const percentage = 66;
 
   if (!data) {
     return null;
   }
 
-  console.log(data.workoutData);
-  const {
-    workoutTitle,
-    workoutFocus,
-    workoutDuration,
-    warmup,
-    mainSets,
-    cooldown,
-    additionalNotes,
-  } = data.workoutData;
+  const { workoutDuration, warmup, mainSets, cooldown } = data.workoutData;
+
+  const workout = useMemo(() => {
+    //map warmup
+    const warmupStage = {
+      name: "Warmup",
+      duration: warmup.duration * 60,
+      description: warmup.description,
+    };
+    //map mainSets and their intervals
+    const mainSetsStages = mainSets.flatMap((set, index) =>
+      set.intervals.map((interval, intervalIndex) => ({
+        name: `Mainset Interval ${index + 1}-${intervalIndex + 1}`,
+        repetitions: set.repetitions,
+        duration: interval.duration * 60,
+        description: interval.description,
+      }))
+    );
+
+    const coolDownStage = {
+      name: "Cooldown",
+      duration: cooldown.duration * 60,
+      description: cooldown.description,
+    };
+
+    return [warmupStage, ...mainSetsStages, coolDownStage];
+  }, [warmup, mainSets, cooldown]);
+  console.log(workout);
+  //countdown timer creation
 
   return (
     <>
-      <CircularProgressbar value={percentage} text={`${percentage}%`} />;
-      <h1>{workoutDuration.duration}</h1>
-      <h2>{warmup.duration}</h2>
-      {/* <div className="test">
-        <h1>{time}</h1>
-        <button>Start</button>
-      </div> */}
-      {/* <div className="main__container center ">
-        <div className="circle__container center">
-          <div className="semicircle"></div>
-          <div className="semicircle"></div>
-          <div className="semicircle"></div>
-          <div className="outermost-circle"></div>
-        </div>
-      </div> */}
-      {/* <div className="skill">
-        <div className="outercircle">
-          <div className="innercircle">
-            <div className="number"></div>
-          </div>
-        </div>
-      </div> */}
+      {/* <CircularProgressbar value={percentage} text={`${percentage}%`} />; */}
+      <div className="workout-player__container">
+        <TimerComponent workout={workout} />
+        {/* <WorkoutDisplayPortal /> */}
+      </div>
     </>
   );
 }
