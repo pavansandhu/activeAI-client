@@ -16,6 +16,17 @@ function WorkoutSelectionForm() {
   });
   const [workoutData, setWorkoutData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [typeModalOpen, setTypeModalOpen] = useState(true);
+  // const [durationModalOpen, setDurationModalOpen] = useState(false);
+  // const [fitLevelModal, setFitLevelModal] = useState(false);
+
+  const [nextModalOpen, setNextModalOpen] = useState({
+    exerciseTypeModal,
+    exerciseDurationModal,
+    fitLevelModal,
+    workoutIntensityModal,
+    additionalInfoModal,
+  });
 
   const handleFormDataChange = (event) => {
     const { name, value } = event.target;
@@ -25,9 +36,20 @@ function WorkoutSelectionForm() {
     }));
   };
 
+  const handleModalChange = (event) => {
+    const { name } = event.target;
+    setNextModalOpen((prevData) => ({ ...prevData,
+      [name]:true,
+    }))
+    };
+  };
+
   const handleCardClick = (exerciseType) => {
     setFormData({ ...formData, exerciseType });
+    setNextModalOpen(false);
   };
+
+  const handleNextClick = () => {};
 
   const navigate = useNavigate();
 
@@ -57,37 +79,34 @@ function WorkoutSelectionForm() {
           <form className="wo-form" onSubmit={handleSubmit}>
             <label className="wo-form__label">
               <h3 className="wo-form__exercise-type">Exercise Type:</h3>
-              <ExerciseTypeCards
-                handleCardClick={handleCardClick}
-                selectedOption={formData.exerciseType}
-              />
-              {/* <input
-                value={formData.exerciseType}
-                name="exerciseType"
-                onChange={handleFormDataChange}
-              >
-                {/* <option value="select">select an exercise type</option> */}
-
-              {/* <option value="indoorCycle">
-                  INDOOR CYCLE
-                  <img src={bike} alt="bike image" className="cycle" />
-                </option>
-                <option value="outdoorCycle">outdoor cycle</option>
-                <option value="treadmillRun">treadmill run</option>
-                <option value="outdoorRun">outdoor run</option>
-              </input>
-            </label> */}
+              {nextModalOpen &&
+                createPortal(
+                  <ExerciseTypeCards
+                    handleCardClick={handleCardClick}
+                    selectedOption={formData.exerciseType}
+                  />,
+                  document.body
+                )}
             </label>
-            <label className="wo-form__label">
-              <h3 className="wo-form__duration">Exercise Duration:</h3>
-              <input
-                type="text"
-                name="exerciseDuration"
-                onChange={handleFormDataChange}
-                value={formData.exerciseDuration}
-                className="wo-form__formfield"
-              />
-            </label>
+            {nextModalOpen &&
+              createPortal(
+                <div className="wo-form__duration-container">
+                  <label className="wo-form__label">
+                    <h3 className="wo-form__duration">Exercise Duration:</h3>
+                    <input
+                      type="text"
+                      name="exerciseDuration"
+                      onChange={handleFormDataChange}
+                      value={formData.exerciseDuration}
+                      className="wo-form__formfield"
+                    />
+                  </label>
+                  <button onClick={handleModalChange} className="next">
+                    Next
+                  </button>
+                </div>,
+                document.body
+              )}
             <label className="wo-form__label">
               <h3 className="wo-form__fitness-level">Fitness Level:</h3>
               <select

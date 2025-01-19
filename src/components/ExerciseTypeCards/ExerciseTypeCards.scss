@@ -1,0 +1,92 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
+
+.exerciseType__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.exerciseType__container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2rem;
+  box-shadow: 4.4px 8.8px 8.8px hsl(0deg 0% 0% / 0.36);
+  width: 20vw;
+  height: 20vh;
+  margin: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition-property: background-image, width, height;
+  transition-duration: 0.5s;
+  &:hover {
+    width: 25vw;
+    height: 25vh;
+  }
+
+  &--indoorbike {
+    background-image: linear-gradient(
+        rgba(50, 50, 50, 0.5),
+        rgba(50, 50, 50, 0.5)
+      ),
+      url(../../assets/images/indoorcycle.jpg);
+  }
+  &--indoorbike:hover {
+    background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
+      url(../../assets/images/indoorcycle.jpg);
+  }
+
+  &--outdoorbike {
+    background-image: linear-gradient(
+        rgba(50, 50, 50, 0.5),
+        rgba(50, 50, 50, 0.5)
+      ),
+      url(../../assets/images/outdoorcycle.jpg);
+  }
+  &--outdoorbike:hover {
+    background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
+      url(../../assets/images/indoorcycle.jpg);
+  }
+
+  &--treadmill {
+    background-image: linear-gradient(
+        rgba(50, 50, 50, 0.5),
+        rgba(50, 50, 50, 0.5)
+      ),
+      url(../../assets/images/treadmill.jpg);
+  }
+  &--treadmill:hover {
+    background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
+      url(../../assets/images/treadmill.jpg);
+  }
+  &--outdoorRun {
+    background-image: linear-gradient(
+        rgba(50, 50, 50, 0.5),
+        rgba(50, 50, 50, 0.5)
+      ),
+      url(../../assets/images/outsiderun.jpg);
+  }
+  &--outdoorRun:hover {
+    background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
+      url(../../assets/images/outsiderun.jpg);
+  }
+  &--swim {
+    background-image: linear-gradient(
+        rgba(50, 50, 50, 0.5),
+        rgba(50, 50, 50, 0.5)
+      ),
+      url(../../assets/images/swim.jpg);
+  }
+  &--swim:hover {
+    background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
+      url(../../assets/images/swim.jpg);
+  }
+}
+
+.exerciseType__headerText {
+  width: 25%;
+}
