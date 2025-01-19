@@ -1,4 +1,5 @@
 import "./WorkoutSelectionForm.scss";
+import ExerciseTypeCards from "../ExerciseTypeCards/ExerciseTypeCards";
 import WorkoutDisplayPortal from "../../components/WorkoutDisplayPortal/WorkoutDisplayPortal";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
@@ -24,11 +25,16 @@ function WorkoutSelectionForm() {
     }));
   };
 
+  const handleCardClick = (exerciseType) => {
+    setFormData({ ...formData, exerciseType });
+  };
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(formData);
+
     try {
       const response = await axios.post(
         `http://localhost:8080/workout/request`,
@@ -37,16 +43,11 @@ function WorkoutSelectionForm() {
       console.log("Workout data sent successfully:", response);
       setWorkoutData(response.data);
       setIsModalOpen(true);
-      // navigate("/displayworkout", { state: { workoutData: response.data } });//
     } catch (error) {
       console.log(error);
       alert("Error sending workout request");
     }
   };
-
-  // const { workoutTitle, warmup, mainSets, cooldown, additionalNotes } =
-  //   workoutData;
-  // console.log(workoutTitle);
 
   return (
     <>
@@ -56,17 +57,26 @@ function WorkoutSelectionForm() {
           <form className="wo-form" onSubmit={handleSubmit}>
             <label className="wo-form__label">
               <h3 className="wo-form__exercise-type">Exercise Type:</h3>
-              <select
+              <ExerciseTypeCards
+                handleCardClick={handleCardClick}
+                selectedOption={formData.exerciseType}
+              />
+              {/* <input
                 value={formData.exerciseType}
                 name="exerciseType"
                 onChange={handleFormDataChange}
               >
-                <option value="select">select an exercise type</option>
-                <option value="indoorCycle">indoor cycle</option>
+                {/* <option value="select">select an exercise type</option> */}
+
+              {/* <option value="indoorCycle">
+                  INDOOR CYCLE
+                  <img src={bike} alt="bike image" className="cycle" />
+                </option>
                 <option value="outdoorCycle">outdoor cycle</option>
                 <option value="treadmillRun">treadmill run</option>
                 <option value="outdoorRun">outdoor run</option>
-              </select>
+              </input>
+            </label> */}
             </label>
             <label className="wo-form__label">
               <h3 className="wo-form__duration">Exercise Duration:</h3>
