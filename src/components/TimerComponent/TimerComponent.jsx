@@ -2,6 +2,10 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useRef, useEffect, useState, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../TimerComponent/TimerComponent.scss";
+import play_pause from "../../assets/svg/play_pause.svg";
+import skip_next from "../../assets/svg/skip_next.svg";
+import restart from "../../assets/svg/restart.svg";
 // import ProgressCircle from "../ProgressCircle/ProgressCircle";
 
 function TimerComponent({ workout }) {
@@ -65,7 +69,7 @@ function TimerComponent({ workout }) {
       }
     } else {
       setIsRunning(false);
-      navigate("/endworkout");
+      navigate("/end-workout");
     }
   };
 
@@ -83,26 +87,28 @@ function TimerComponent({ workout }) {
     return `${minutes}:${seconds}`;
   }
 
-  const percentage = Math.round(timeRemaining.current / timerRef.current);
-  console.log(percentage);
+  // const percentage = Math.round(timeRemaining.current / timerRef.current);
+  // console.log(percentage);
 
   return (
-    <div>
-      <h2>{workout[currentStep].name}</h2>
-      <h2>{workout[currentStep].description}</h2>
+    <div className="timer__container">
+      <h2 className="timer__currentstep">{workout[currentStep].name}</h2>
+      <h3 className="timer__description">{workout[currentStep].description}</h3>
       <div className="timeranimationContainer">
-        <h3>{formatTime(displayTime)}</h3>
+        <h1 className="timer__duration">{formatTime(displayTime)}</h1>
         {/* <CircularProgressbar value={60} text={`${60}%`} /> */}
       </div>
-      <button onClick={toggleWorkout} className="start">
-        Start/Pause
-      </button>
-      <button onClick={handleFastForward} className="nextstep">
-        Next Step
-      </button>
-      <button onClick={handleReset} className="reset">
-        Reset Step
-      </button>
+      <div className="timer__buttons">
+        <button onClick={handleFastForward} className="timer__button">
+          <img src={skip_next} alt="next step" />
+        </button>
+        <button onClick={toggleWorkout} className="timer__button">
+          <img src={play_pause} alt="toggle to play or pause" />
+        </button>
+        <button onClick={handleReset} className="timer__button">
+          <img src={restart} alt="restart step" />
+        </button>
+      </div>
     </div>
   );
 }

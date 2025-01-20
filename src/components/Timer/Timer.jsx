@@ -49,10 +49,10 @@ function Timer() {
   return (
     <>
       {/* <CircularProgressbar value={percentage} text={`${percentage}%`} />; */}
-      <div className="workout-player__container">
-        <TimerComponent workout={workout} />
-        {/* <WorkoutDisplayPortal /> */}
-      </div>
+      {/* <div className="workout-player__container"> */}
+      <TimerComponent workout={workout} />
+      {/* <WorkoutDisplayPortal /> */}
+      {/* </div> */}
     </>
   );
 }

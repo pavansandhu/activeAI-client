@@ -1,10 +1,55 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
+
 .wd__container {
-  width: 50%;
-  padding: 1rem;
+  @include flex-center(
+    $direction: column,
+    $justify: space-between,
+    $align: flex-start
+  );
+  height: 100%;
+  padding: 2rem;
   box-shadow: 4.4px 8.8px 8.8px hsl(0deg 0% 0% / 0.36);
-  margin: 1rem;
-  position: absolute;
+  margin: 3rem 1rem;
+  position: relative;
+  top: -35rem;
   background-color: #e0f987;
-  top: 5rem;
-  left: 30rem;
+  border-radius: 2rem;
+}
+
+.wd__warmup-text {
+  font-family: "Outfit";
+  font-weight: 300;
+  padding: 0.25rem;
+}
+
+.wd__cooldown-text {
+  font-family: "Outfit";
+  font-weight: 300;
+  padding: 0.25rem;
+}
+
+.wd__additional-text {
+  font-family: "Outfit";
+  font-weight: 700;
+  font-style: italic;
+  padding: 0.25rem;
+}
+
+.wd__button {
+  height: 2rem;
+  width: 10rem;
+  background-color: $primary-accent;
+  color: $secondary-text;
+  border: none;
+  margin: 0.5rem;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: height, width;
+  transition-duration: 0.5s;
+  &:hover {
+    height: 3rem;
+    width: 10.5rem;
+  }
 }

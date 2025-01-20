@@ -1,0 +1,58 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
+
+.timer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-background;
+  box-shadow: 4.4px 8.8px 8.8px hsl(0deg 0% 0% / 0.36);
+  border-radius: 2rem;
+  margin: 5rem 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.timer__currentstep {
+  padding: 2rem;
+}
+
+.timer__description {
+  padding: 2rem;
+  font-family: "Outfit";
+  font-weight: 300;
+  padding: 2rem;
+  text-align: center;
+}
+
+.timer__duration {
+  font-family: "Outfit";
+  font-size: 5rem;
+}
+
+.timer__buttons {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.timer__button {
+  width: 10rem;
+  padding: 2rem;
+  background-color: $primary-accent;
+  border: none;
+  border-radius: 2rem;
+  transition: border-radius;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  .timer__button:hover {
+    border-radius: 5rem;
+  }
+}
