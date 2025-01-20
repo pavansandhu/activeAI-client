@@ -4,11 +4,25 @@
 
 .header {
   height: 5rem;
-  background-color: #e0f987;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  position: absolute;
+  width: 100%;
+}
+
+.header__consistent {
+  display: flex;
+}
+
+.header__logo-link {
+  text-decoration: none;
+}
+
+.header__logo {
+  color: #e0f987;
 }
 
 .button__home-container {
@@ -30,4 +44,8 @@
 
 .button__loggedin-container {
   display: flex;
+}
+
+.header__hide {
+  display: none;
 }

@@ -65,7 +65,7 @@ function TimerComponent({ workout }) {
       }
     } else {
       setIsRunning(false);
-      navigate("/endworkout");
+      navigate("/end-workout");
     }
   };
 
@@ -83,8 +83,8 @@ function TimerComponent({ workout }) {
     return `${minutes}:${seconds}`;
   }
 
-  const percentage = Math.round(timeRemaining.current / timerRef.current);
-  console.log(percentage);
+  // const percentage = Math.round(timeRemaining.current / timerRef.current);
+  // console.log(percentage);
 
   return (
     <div>

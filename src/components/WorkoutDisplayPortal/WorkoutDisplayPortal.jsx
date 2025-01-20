@@ -19,7 +19,7 @@ function WorkoutDisplayPortal({ workoutData, onClose }) {
 
   const handleStartClick = (e) => {
     e.preventDefault();
-    navigate("/startworkout", { state: { workoutData: workoutData } });
+    navigate("/start-workout", { state: { workoutData: workoutData } });
   };
 
   return (
