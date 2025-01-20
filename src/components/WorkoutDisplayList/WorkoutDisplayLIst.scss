@@ -1,0 +1,18 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
+
+.mainset__repetitions {
+  font-family: "Outfit";
+  font-weight: 300;
+  padding: 0.25rem;
+}
+
+.mainSet__list {
+  list-style: none;
+  padding: 0.25rem;
+}
+
+.mainset__text {
+  padding: 0.25rem;
+}
