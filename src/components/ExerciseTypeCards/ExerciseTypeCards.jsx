@@ -36,10 +36,11 @@ function ExerciseTypeCards({ handleCardClick, selectedOption }) {
         </article>
         <article className="exerciseType__swim">
           <div
-            onClick={() => handleCardClick("swim")}
+            // onClick={() => handleCardClick("swim")}
             className="exerciseType__container exerciseType__container--swim"
           >
             <h3 className="exerciseType__headerText">Swim</h3>
+            <h2 className="exerciseType__Future-text">Available Soon</h2>
           </div>
         </article>
       </section>

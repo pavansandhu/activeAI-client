@@ -87,19 +87,32 @@
       url(../../assets/images/outsiderun.jpg);
   }
   &--swim {
+    cursor: not-allowed;
     background-image: linear-gradient(
         rgba(50, 50, 50, 0.5),
         rgba(50, 50, 50, 0.5)
       ),
       url(../../assets/images/swim.jpg);
   }
-  &--swim:hover {
-    background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
-      url(../../assets/images/swim.jpg);
-  }
+  // &--swim:hover {
+  //   background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
+  //     url(../../assets/images/swim.jpg);
+  // }
 }
 
 .exerciseType__headerText {
   color: $primary-text;
   width: 25%;
+}
+// .exerciseType__text-swim {
+//   display: hidden;
+// }
+// .exerciseType__text-swim:hover {
+//   display: block;
+// }
+
+.exerciseType__Future-text {
+  color: $primary-text;
+  font-family: "Outfit";
+  font-weight: 300;
 }
