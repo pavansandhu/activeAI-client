@@ -3,21 +3,23 @@
 @use "../../styles/variables" as *;
 
 .exerciseType__cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 0;
-  left: 0;
+  @include flex-center($direction: column, $justify: center, $align: center);
+  @include tablet {
+    @include flex-center($direction: row, $justify: center, $align: center);
+    flex-wrap: wrap;
+    position: relative;
+    bottom: -5rem;
+  }
 }
 
 .exerciseType__container {
+  margin: 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   border-radius: 2rem;
   box-shadow: 4.4px 8.8px 8.8px hsl(0deg 0% 0% / 0.36);
-  width: 20vw;
+  width: 75vw;
   height: 20vh;
   margin: 1rem;
   padding: 1rem;
@@ -26,9 +28,16 @@
   background-position: center;
   transition-property: background-image, width, height;
   transition-duration: 0.5s;
+  @include tablet {
+    width: 20vw;
+    height: 20vh;
+  }
   &:hover {
-    width: 25vw;
+    width: 80vw;
     height: 25vh;
+    @include tablet {
+      width: 25vw;
+    }
   }
 
   &--indoorbike {
@@ -52,7 +61,7 @@
   }
   &--outdoorbike:hover {
     background-image: linear-gradient(rgba(50, 50, 50, 0), rgba(50, 50, 50, 0)),
-      url(../../assets/images/indoorcycle.jpg);
+      url(../../assets/images/outdoorcycle.jpg);
   }
 
   &--treadmill {

@@ -1,6 +1,69 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
+
 .workoutselection__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center($direction: row, $justify: center, $align: center);
   margin: 2rem;
+}
+.wo-form__exercise-type {
+  margin: 1rem;
+  padding-top: 3rem;
+}
+
+.wo-form__duration-container {
+  @include flex-center(
+    $direction: column,
+    $justify: space-evenly,
+    $align: center
+  );
+  margin: 1rem;
+
+  position: relative;
+  bottom: -5rem;
+  @include tablet {
+    @include flex-center(
+      $direction: row,
+      $justify: space-evenly,
+      $align: center
+    );
+  }
+}
+
+.wo-form__label {
+  @include flex-center($direction: column, $justify: start, $align: flex-start);
+  margin: 1rem;
+
+  .wo-form__duration {
+    font-family: "Outfit";
+    font-weight: 300;
+    margin: 1rem;
+  }
+
+  .wo-form__formfield {
+    width: 75vw;
+    height: 5vh;
+    margin: 1rem;
+    border-radius: 2rem;
+    border: 2px solid $primary-accent;
+    font-family: "Outfit";
+    font-weight: 300;
+  }
+}
+
+button {
+  @include flex-center($direction: colun, $justify: center, $align: center);
+}
+
+.wo-form__next {
+  height: 2rem;
+  width: 5rem;
+  background-color: $primary-accent;
+  color: $secondary-text;
+  border: none;
+  margin: 0.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-family: "outfit";
+  font-weight: 300;
 }

@@ -5,15 +5,16 @@
 .header {
   height: 5rem;
   background-color: transparent;
-  display: flex;
-  align-items: center;
+  @include flex-center($direction: row, $align: center);
   justify-content: space-between;
   padding: 1rem;
   position: absolute;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-.header__consistent {
+.header__fixed {
   display: flex;
 }
 
@@ -22,20 +23,30 @@
 }
 
 .header__logo {
+  color: $primary-accent;
+}
+
+.header__logo-home {
   color: #e0f987;
 }
 
-.button__home-container {
-  display: flex;
+.header__workout-link {
+  padding-left: 5rem;
+}
+
+.header__userProfile {
+  text-decoration: none;
 }
 
 .button__header {
+  height: 2rem;
   background-color: $primary-accent;
   border: none;
   margin: 0.5rem;
   border-radius: 2rem;
   cursor: pointer;
 }
+
 .button__text {
   color: $secondary-text;
   text-wrap: nowrap;
@@ -45,7 +56,6 @@
 .button__loggedin-container {
   display: flex;
 }
-
 .header__hide {
   display: none;
 }

@@ -1,7 +1,7 @@
 import "../ExerciseTypeCards/ExerciseTypeCards.scss";
 
 function ExerciseTypeCards({ handleCardClick, selectedOption }) {
-  console.log("selectedOption", selectedOption);
+  // console.log("selectedOption", selectedOption);
 
   return (
     <>

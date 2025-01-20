@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import arrow_forward from "../../assets/svg/arrow_forward.svg";
 
 function WorkoutSelectionForm() {
   const [formData, setFormData] = useState({
@@ -62,12 +63,13 @@ function WorkoutSelectionForm() {
     <>
       <div className="workoutselection__container">
         <div className="wo__container">
-          <h1 className="wo__header"></h1>
           <form className="wo-form" onSubmit={handleSubmit}>
             {currentStep === 1 &&
               createPortal(
                 <label className="wo-form__label">
-                  <h3 className="wo-form__exercise-type">Exercise Type:</h3>
+                  <h3 className="wo-form__exercise-type">
+                    Select the type of workout you would like to do?
+                  </h3>
 
                   <ExerciseTypeCards
                     handleCardClick={handleCardClick}
@@ -80,7 +82,9 @@ function WorkoutSelectionForm() {
               createPortal(
                 <div className="wo-form__duration-container">
                   <label className="wo-form__label">
-                    <h3 className="wo-form__duration">Exercise Duration:</h3>
+                    <h3 className="wo-form__duration">
+                      Exercise Duration (please provide in minutes only):
+                    </h3>
                     <input
                       type="text"
                       name="exerciseDuration"
@@ -92,9 +96,14 @@ function WorkoutSelectionForm() {
                   <button
                     onClick={handleNextStep}
                     type="button"
-                    className="next"
+                    className="wo-form__next"
                   >
                     Next
+                    <img
+                      src={arrow_forward}
+                      alt=""
+                      className="wo-form__next-icon"
+                    />
                   </button>
                 </div>,
                 document.body

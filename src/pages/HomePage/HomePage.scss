@@ -1,5 +1,6 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
 
 .heroImage__section {
   background-image: linear-gradient(
@@ -19,38 +20,74 @@
 }
 
 .heroImage__header {
+  font-weight: 300;
   padding: 1rem;
 }
 
 .heroImage__text {
+  font-weight: 300;
   padding: 1rem;
 }
 
 .heroImage__text-join {
+  font-weight: 300;
   padding: 1rem;
 }
 
-.background__section {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.heroImage__quickstart {
+  text-decoration: none;
+  color: $primary-background;
+  font-weight: 300;
 }
 
 .features__section {
   margin: 1rem;
-
   @include flex-center($direction: column, $justify: center, $align: center);
+
+  .features__header {
+    font-weight: 300;
+    color: $primary-text;
+  }
+
+  .features__container {
+    @include flex-center($direction: row, $justify: center, $align: center);
+  }
+  .features__details {
+    @include flex-center($direction: row, $justify: center, $align: center);
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 33%;
+    height: 15rem;
+    border-radius: 2rem;
+    background-color: $primary-background;
+    .features__text {
+      font-weight: 300;
+      color: $primary-text;
+      width: 75%;
+    }
+  }
 }
 
-.features__container {
-  @include flex-center($direction: row, $justify: center, $align: center);
-}
-.features__details {
-  box-shadow: 4.4px 4.4px 4.4px hsl(0deg 0% 0% / 0.36);
-  border: 1px solid grey;
-  width: 33%;
-  height: 20rem;
-  padding: 1rem;
+.background__section {
+  background-image: linear-gradient(
+      rgba(50, 50, 50, 0.5),
+      rgba(50, 50, 50, 0.5)
+    ),
+    url(../../assets/images/image_fx_runner.jpg);
+  background-size: cover;
+  background-position: top;
+  min-height: 60vh;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  color: $secondary-text;
+  .background__section-text {
+    width: 40%;
+  }
+  .background__text {
+    padding: 1rem;
+  }
 }
