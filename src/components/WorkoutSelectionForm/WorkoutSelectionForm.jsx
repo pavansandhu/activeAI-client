@@ -18,6 +18,7 @@ function WorkoutSelectionForm() {
   const [workoutData, setWorkoutData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
+  const [formErrors, setFormErrors] = useState({});
 
   const handleFormDataChange = (event) => {
     const { name, value } = event.target;
@@ -32,10 +33,25 @@ function WorkoutSelectionForm() {
     setCurrentStep(2);
   };
 
+  const isFormValid = () => {
+    if (
+      !formData.exerciseDuration ||
+      !formData.fitnessLevel ||
+      !formData.workoutIntensity
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   const handleNextStep = () => {
-    setCurrentStep((prevStep) => prevStep + 1);
-    if (currentStep === 6) {
-      return;
+    if (isFormValid()) {
+      setCurrentStep((prevStep) => prevStep + 1);
+      if (currentStep === 4) {
+        return;
+      }
+    } else {
+      alert("Please complete all form fields");
     }
   };
 
@@ -43,37 +59,21 @@ function WorkoutSelectionForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // function validateForm(formData) {
-    //   let isFormValid = true;
-    //   for (let key of formData) {
-    //     const fieldValue = formData[key];
-    //     if (fieldValue === "") {
-    //       isFormValid = false;
-    //       break;
-    //     }
-    //   }
-    //   if (!isFormValid) {
-    //     alert("Please do not leave any fields empty");
-    //   }
-    //   return isFormValid;
-    // }
-    // const isFormValid = validateForm(formData);
-    // if (!isFormValid) {
-    //   return;
-    // }
-
-    try {
-      const response = await axios.post(
-        `http://localhost:8080/workout/request`,
-        formData
-      );
-      console.log("Workout data sent successfully:", response);
-      setWorkoutData(response.data);
-      setIsModalOpen(true);
-    } catch (error) {
-      console.log(error);
-      alert("Error sending workout request");
+    if (isFormValid()) {
+      try {
+        const response = await axios.post(
+          `http://localhost:8080/workout/request`,
+          formData
+        );
+        console.log("Workout data sent successfully:", response);
+        setWorkoutData(response.data);
+        setIsModalOpen(true);
+      } catch (error) {
+        console.log(error);
+        alert("Error sending workout request");
+      }
+    } else {
+      alert("Failed to complete sections of the workout form");
     }
   };
 
@@ -105,25 +105,13 @@ function WorkoutSelectionForm() {
                         Exercise Duration (please provide in minutes only):
                       </h3>
                       <input
-                        type="text"
+                        type="number"
                         name="exerciseDuration"
                         onChange={handleFormDataChange}
                         value={formData.exerciseDuration}
                         className="wo-form__formfield"
                       />
                     </label>
-                    {/* <button
-                      onClick={handleNextStep}
-                      type="button"
-                      className="wo-form__next"
-                    >
-                      Next
-                      <img
-                        src={arrow_forward}
-                        alt=""
-                        className="wo-form__next-icon"
-                      />
-                    </button> */}
                   </div>
 
                   <div className="wo-form__fitnessLevel-container">
@@ -150,13 +138,6 @@ function WorkoutSelectionForm() {
                         </option>
                       </select>
                     </label>
-                    {/* <button
-                      onClick={handleNextStep}
-                      type="button"
-                      className="next"
-                    >
-                      Next
-                    </button> */}
                   </div>
 
                   <div className="wo-form__intensity-container">
@@ -181,13 +162,6 @@ function WorkoutSelectionForm() {
                         </option>
                       </select>
                     </label>
-                    {/* <button
-                      onClick={handleNextStep}
-                      type="button"
-                      className="next"
-                    >
-                      Next
-                    </button> */}
                   </div>
                   <button
                     onClick={handleNextStep}

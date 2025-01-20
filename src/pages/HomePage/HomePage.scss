@@ -10,13 +10,17 @@
     url(../../assets/images/image_fx_cyclist.jpg);
   background-size: cover;
   background-position: center;
-  min-height: 65vh;
+  max-height: 65vh;
+  @include tablet {
+    min-height: 70vh;
+  }
 }
 
 .heroImage__textbox {
   padding: 6rem;
-  width: 50%;
   color: white;
+  width: 50%;
+  height: 5rem;
 }
 
 .heroImage__header {
