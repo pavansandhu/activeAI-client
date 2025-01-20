@@ -32,6 +32,7 @@
 
 .header__workout-link {
   padding-left: 5rem;
+  text-decoration: none;
 }
 
 .header__userProfile {
@@ -53,9 +54,13 @@
   padding: 0.5rem;
 }
 
-.button__loggedin-container {
-  display: flex;
+.header__profile {
+  text-decoration: none;
+  .button__profile-container {
+    display: flex;
+  }
 }
+
 .header__hide {
   display: none;
 }

@@ -21,12 +21,12 @@ function WorkoutDisplayList(props) {
               isRepeated() ? "" : "mainset__norepetitions"
             }`}
           >
-            {repetitions}
+            {repetitions} x
           </h2>
           {intervals.map((interval, index) => (
-            <li key={interval.id}>
-              <p className="mainset__duration">{interval.duration}</p>
-              <p className="mainset__description">{interval.description}</p>
+            <li className="mainSet__list" key={interval.id}>
+              <p className="mainset__text">{interval.duration} minutes</p>
+              <p className="mainset__text">{interval.description}</p>
             </li>
           ))}
         </ul>

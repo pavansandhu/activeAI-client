@@ -87,8 +87,8 @@ function TimerComponent({ workout }) {
   // console.log(percentage);
 
   return (
-    <div>
-      <h2>{workout[currentStep].name}</h2>
+    <div className="timer__container">
+      <h2 className="timer__currentstep">{workout[currentStep].name}</h2>
       <h2>{workout[currentStep].description}</h2>
       <div className="timeranimationContainer">
         <h3>{formatTime(displayTime)}</h3>
