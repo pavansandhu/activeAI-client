@@ -1,9 +1,7 @@
 import "./HomePage.scss";
 import Header from "../../components/Header/Header";
 import { NavLink } from "react-router-dom";
-import bike from "../../assets/svg/bike.svg";
-import run from "../../assets/svg/run.svg";
-import swim from "../../assets/svg/swim.svg";
+import forward from "../../assets/svg/forward.svg";
 
 function HomePage() {
   return (
@@ -22,13 +20,28 @@ function HomePage() {
               progress, build confidence, and discover the joy of movement with
               workouts designed just for you.
             </p>
-            <p className="heroImage__text-join">
-              <NavLink className="heroImage__quickstart" to="/select-workout">
-                Start today{" "}
-              </NavLink>
-              , and see what you can achieve.
-            </p>
+            <div className="heroImage__join-container">
+              <p className="heroImage__text-join">
+                <NavLink className="heroImage__quickstart" to="/select-workout">
+                  Start today{" "}
+                </NavLink>
+                , and see what you can achieve.
+              </p>
+            </div>
           </div>
+          <NavLink className="getstarted__link" to="/select-workout">
+            <button className="getstarted__button">
+              <h2 className="getstarted__text">Get Started Today</h2>
+              <img className="arrow" src={forward} alt="moving arrow" />
+            </button>
+          </NavLink>
+          <p className="heroImage__text-mobile">
+            Forget rigid programs and extra equipment— we harness AI to create
+            customizable workouts that help you stay focused and consistent,
+            whether you aim to race or work out once a week. Track your
+            progress, build confidence, and discover the joy of movement with
+            workouts designed just for you.
+          </p>
         </section>
         <section className="features__section">
           <h1 className="features__header">FEATURES</h1>
