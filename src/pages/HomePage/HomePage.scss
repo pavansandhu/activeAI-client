@@ -2,6 +2,10 @@
 @use "../../styles/fonts" as *;
 @use "../../styles/variables" as *;
 
+.homepage__section {
+  display: flex;
+  flex-direction: column;
+}
 .heroImage__section {
   background-image: linear-gradient(
       rgba(50, 50, 50, 0.5),

@@ -35,9 +35,9 @@ function WorkoutSelectionForm() {
 
   const isFormValid = () => {
     if (
-      !formData.exerciseDuration ||
-      !formData.fitnessLevel ||
-      !formData.workoutIntensity
+      !formData.exerciseDuration.trim() ||
+      !formData.fitnessLevel.trim() ||
+      !formData.workoutIntensity.trim()
     ) {
       return false;
     }
@@ -109,7 +109,8 @@ function WorkoutSelectionForm() {
                         name="exerciseDuration"
                         onChange={handleFormDataChange}
                         value={formData.exerciseDuration}
-                        className="wo-form__formfield"
+                        className="wo-form__formfield "
+                        placeholder="minutes"
                       />
                     </label>
                   </div>

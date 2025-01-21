@@ -11,6 +11,12 @@ function Header() {
   const isStartWorkout = location.pathname === "/start-workout";
   const isUserProfile = location.pathname === "/user-profile";
 
+  const reloadPage = () => {
+    if (isSelectWorkout) {
+      window.location.reload();
+    }
+  };
+
   return (
     <div className="header">
       <div className="header__fixed">
@@ -21,7 +27,7 @@ function Header() {
         </NavLink>
         <NavLink to="/select-workout" className="header__workout-link">
           <div className="button__workout-container">
-            <button className="button__header">
+            <button onClick={reloadPage} className="button__header">
               <p className="button__text">Workout Quick Start</p>
             </button>
           </div>

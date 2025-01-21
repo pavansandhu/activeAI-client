@@ -1,0 +1,16 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+@use "../../styles/variables" as *;
+
+.footer__section {
+  // height: 5rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer__text {
+  color: $primary-accent;
+  font-family: "outfit";
+  font-weight: 300;
+}
