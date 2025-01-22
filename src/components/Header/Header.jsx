@@ -23,7 +23,9 @@ function Header() {
         <NavLink to="/" className="header__logo-link">
           <h1 className={`header__logo ${isHome ? "header__logo-home" : ""}`}>
             activeAI
-            <p className="powered">Powered by Gemini AI</p>
+            <p className={`powered ${isHome ? "powered-home" : ""}`}>
+              Powered by Gemini AI
+            </p>
           </h1>
         </NavLink>
         <NavLink to="/select-workout" className="header__workout-link">

@@ -67,7 +67,8 @@ function WorkoutSelectionForm() {
         );
         console.log("Workout data sent successfully:", response);
         setWorkoutData(response.data);
-        setIsModalOpen(true);
+        // setIsModalOpen(true);
+        setCurrentStep(5);
       } catch (error) {
         console.log(error);
         alert("Error sending workout request");
@@ -266,21 +267,21 @@ function WorkoutSelectionForm() {
               </section>
             )}
           </form>
+          {currentStep === 5 &&
+            createPortal(
+              <section className="workoutdisplay__container">
+                <WorkoutDisplayPortal
+                  onClose={() => {
+                    console.log("Before close:", isModalOpen);
+                    setIsModalOpen(false);
+                    console.log("After close:", isModalOpen);
+                  }}
+                  workoutData={workoutData}
+                />
+              </section>,
+              document.body
+            )}
         </div>
-        {isModalOpen &&
-          createPortal(
-            <section className="workoutdisplay__container">
-              <WorkoutDisplayPortal
-                onClose={() => {
-                  console.log("Before close:", isModalOpen);
-                  setIsModalOpen(false);
-                  console.log("After close:", isModalOpen);
-                }}
-                workoutData={workoutData}
-              />
-            </section>,
-            document.body
-          )}
       </div>
     </>
   );

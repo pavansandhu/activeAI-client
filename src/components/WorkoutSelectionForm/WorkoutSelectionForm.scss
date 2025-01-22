@@ -124,7 +124,7 @@ button {
   );
   margin: 1rem;
   position: relative;
-  bottom: -5rem;
+  bottom: 0rem;
 }
 
 .wo-form__label-info {
@@ -189,6 +189,12 @@ button {
   margin: 1rem;
 }
 
+.workoutdisplay__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .wo-form__generate-button {
   height: 5rem;
   width: 10rem;
@@ -209,8 +215,4 @@ button {
 .wo-form__generate {
   font-family: "outfit";
   font-weight: 300;
-}
-
-.workoutdisplay__container {
-  position: relative;
 }
