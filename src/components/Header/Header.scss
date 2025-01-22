@@ -16,6 +16,7 @@
 
 .header__fixed {
   display: flex;
+  flex-direction: row;
 }
 
 .header__logo-link {
@@ -27,12 +28,35 @@
 }
 
 .header__logo-home {
+  display: flex;
+  flex-direction: column;
   color: #e0f987;
 }
 
+.powered {
+  color: $primary-accent;
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.powered-home {
+  color: #e0f987;
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
 .header__workout-link {
-  padding-left: 5rem;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
   text-decoration: none;
+}
+
+.button__text {
+  display: inline-block;
+  color: $secondary-text;
+  text-wrap: nowrap;
+  padding: 0.5rem;
 }
 
 .header__userProfile {
@@ -48,10 +72,40 @@
   cursor: pointer;
 }
 
-.button__text {
+.button__text-join {
+  display: none;
+  @include tablet {
+    display: inline-block;
+    color: $secondary-text;
+    text-wrap: nowrap;
+    padding: 0.5rem;
+  }
+}
+
+.button__text-login {
+  display: none;
+  @include tablet {
+    display: inline-block;
+    color: $secondary-text;
+    text-wrap: nowrap;
+    padding: 0.5rem;
+  }
+}
+
+.button__text-profile {
+  display: inline-block;
   color: $secondary-text;
   text-wrap: nowrap;
   padding: 0.5rem;
+}
+
+.button__text-mobile {
+  color: $secondary-text;
+  text-wrap: nowrap;
+  padding: 0.5rem;
+  @include tablet {
+    display: none;
+  }
 }
 
 .header__profile {

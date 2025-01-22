@@ -2,7 +2,15 @@
 @use "../../styles/fonts" as *;
 @use "../../styles/variables" as *;
 
+.homepage__section {
+  display: flex;
+  flex-direction: column;
+}
 .heroImage__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
   background-image: linear-gradient(
       rgba(50, 50, 50, 0.5),
       rgba(50, 50, 50, 0.5)
@@ -10,31 +18,65 @@
     url(../../assets/images/image_fx_cyclist.jpg);
   background-size: cover;
   background-position: center;
-  max-height: 65vh;
+  min-height: 65vh;
   @include tablet {
     min-height: 70vh;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
 .heroImage__textbox {
-  padding: 6rem;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 2rem 2rem;
   color: white;
-  width: 50%;
-  height: 5rem;
+  width: 60%;
+  @include tablet {
+    padding: 6rem 2rem;
+    width: 50%;
+  }
+  @include desktop {
+    padding: 6rem;
+  }
 }
 
 .heroImage__header {
   font-weight: 300;
+  font-size: 1.25rem;
   padding: 1rem;
 }
 
 .heroImage__text {
   font-weight: 300;
+  font-size: 1rem;
   padding: 1rem;
+  display: none;
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.heroImage__text-mobile {
+  color: white;
+  padding: 2rem;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.heroImage__join-container {
+  display: none;
+  @include tablet {
+    display: flex;
+  }
 }
 
 .heroImage__text-join {
   font-weight: 300;
+  font-size: 1rem;
   padding: 1rem;
 }
 
@@ -42,6 +84,34 @@
   text-decoration: none;
   color: $primary-background;
   font-weight: 300;
+}
+
+.getstarted__link {
+  display: flex;
+  text-decoration: none;
+  padding: 0 2rem;
+}
+
+.getstarted__button {
+  cursor: pointer;
+  background-color: $primary-accent;
+  color: $secondary-text;
+  border: none;
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 0.75em;
+  border-radius: 2rem;
+  font-size: 0.5rem;
+  @include tablet {
+    font-size: 1rem;
+    width: 15rem;
+    height: 10rem;
+  }
+}
+
+.getstarted__text {
+  font-weight: 300;
+  padding: 1rem;
 }
 
 .features__section {
@@ -54,21 +124,31 @@
   }
 
   .features__container {
-    @include flex-center($direction: row, $justify: center, $align: center);
+    @include flex-center($direction: column, $justify: center, $align: center);
+    @include tablet {
+      @include flex-center($direction: row, $justify: center, $align: center);
+    }
   }
   .features__details {
     @include flex-center($direction: row, $justify: center, $align: center);
     margin: 1rem;
     padding: 1rem;
     text-align: center;
-    width: 33%;
-    height: 15rem;
+
     border-radius: 2rem;
     background-color: $primary-background;
+    @include tablet {
+      width: 33%;
+      height: 15rem;
+    }
+
     .features__text {
       font-weight: 300;
       color: $primary-text;
-      width: 75%;
+      font-size: 1rem;
+      @include tablet {
+        width: 75%;
+      }
     }
   }
 }
