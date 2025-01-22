@@ -1,6 +1,6 @@
 import "./Header.scss";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import personIcon from "../../assets/svg/person_login.svg";
+import login from "../../assets/svg/login.svg";
 
 function Header() {
   const location = useLocation();
@@ -23,6 +23,7 @@ function Header() {
         <NavLink to="/" className="header__logo-link">
           <h1 className={`header__logo ${isHome ? "header__logo-home" : ""}`}>
             activeAI
+            <p className="powered">Powered by Gemini AI</p>
           </h1>
         </NavLink>
         <NavLink to="/select-workout" className="header__workout-link">
@@ -49,11 +50,13 @@ function Header() {
       >
         <div className="button__profile-container">
           <button className="button__header">
-            <p className="button__text">Join for Free</p>
+            <p className="button__text-join">Join for Free</p>
+            <p className="button__text-mobile">Join</p>
           </button>
 
           <button className="button__header">
-            <p className="button__text">Login </p>
+            <p className="button__text-login">Login </p>
+            <img src={login} alt="login" className="button__text-mobile" />
           </button>
         </div>
       </NavLink>
@@ -62,7 +65,7 @@ function Header() {
         className={`header__profile ${isHome ? "header__hide" : ""}`}
       >
         <button className="button__header">
-          <p className="button__text">Profile</p>
+          <p className="button__text-profile">Profile</p>
         </button>
       </NavLink>
     </div>

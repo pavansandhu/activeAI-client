@@ -22,7 +22,7 @@ function App() {
         <Route path="/end-workout" element={<WorkoutComplete />} />
         <Route path="/user-profile" element={<UserProfileDemo />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

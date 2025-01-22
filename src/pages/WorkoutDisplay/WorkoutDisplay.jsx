@@ -2,21 +2,37 @@
 import Header from "../../components/Header/Header";
 import { useLocation } from "react-router-dom";
 import WorkoutDisplayList from "../../components/WorkoutDisplayList/WorkoutDisplayList";
-
+import { createPortal } from "react-dom";
 import { useState } from "react";
+import WorkoutDisplayPortal from "../../components/WorkoutDisplayPortal/WorkoutDisplayPortal";
 
 function WorkoutDisplay(props) {
-  const location = useLocation();
-  const data = location.state;
-  console.log(data.workoutData);
+  // const location = useLocation();
+  // const data = location.state;
+  // console.log(data.workoutData);
 
-  const { workoutTitle, warmup, mainSets, cooldown, additionalNotes } =
-    data.workoutData;
-  console.log(mainSets[0].intervals[0]);
+  // const { workoutTitle, warmup, mainSets, cooldown, additionalNotes } =
+  //   data.workoutData;
+  // console.log(mainSets[0].intervals[0]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <Header />
+      {isModalOpen &&
+        createPortal(
+          <section className="workoutdisplay__container">
+            <WorkoutDisplayPortal
+              onClose={() => {
+                console.log("Before close:", isModalOpen);
+                setIsModalOpen(false);
+                console.log("After close:", isModalOpen);
+              }}
+              workoutData={workoutData}
+            />
+          </section>,
+          document.body
+        )}
+      {/* <Header />
       <div className="wd__container">
         <h1>{workoutTitle.title}</h1>
         <h2>Warmup</h2>
@@ -43,7 +59,7 @@ function WorkoutDisplay(props) {
       </div>
       <button className="startworkout" onClick={() => setShowModal(true)}>
         Start workout
-      </button>
+      </button> */}
     </>
   );
 }

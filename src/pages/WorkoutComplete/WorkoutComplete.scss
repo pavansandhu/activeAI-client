@@ -2,7 +2,7 @@
 @use "../../styles/fonts" as *;
 @use "../../styles/variables" as *;
 
-.workout__completed-container {
+.workout__completed-section {
   background-image: linear-gradient(
       rgba(50, 50, 50, 0.5),
       rgba(50, 50, 50, 0.5)
@@ -13,8 +13,12 @@
   min-height: 100vh;
 }
 
-.workout__complete-text {
-  padding-top: 15rem;
+.workout__complete-container {
+  padding: 15rem 1rem;
   width: 45%;
   color: $primary-background;
+}
+
+.workout__complete-text {
+  padding: 2rem;
 }

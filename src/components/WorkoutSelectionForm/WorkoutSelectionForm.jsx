@@ -99,7 +99,7 @@ function WorkoutSelectionForm() {
             {currentStep === 2 &&
               createPortal(
                 <div className="wo-form__portal">
-                  <div className="wo-form__duration-container">
+                  <div className="wo-form__container">
                     <label className="wo-form__label">
                       <h3 className="wo-form__text">
                         Exercise Duration (please provide in minutes only):
@@ -115,7 +115,7 @@ function WorkoutSelectionForm() {
                     </label>
                   </div>
 
-                  <div className="wo-form__fitnessLevel-container">
+                  <div className="wo-form__container">
                     <label className="wo-form__label">
                       <h3 className="wo-form__text">Fitness Level:</h3>
                       <select
@@ -141,7 +141,7 @@ function WorkoutSelectionForm() {
                     </label>
                   </div>
 
-                  <div className="wo-form__intensity-container">
+                  <div className="wo-form__container">
                     <label className="wo-form__label">
                       <h3 className="wo-form__text">Workout Intensity:</h3>
                       <select
