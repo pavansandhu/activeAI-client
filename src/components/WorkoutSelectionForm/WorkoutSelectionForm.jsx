@@ -35,9 +35,9 @@ function WorkoutSelectionForm() {
 
   const isFormValid = () => {
     if (
-      !formData.exerciseDuration ||
-      !formData.fitnessLevel ||
-      !formData.workoutIntensity
+      !formData.exerciseDuration.trim() ||
+      !formData.fitnessLevel.trim() ||
+      !formData.workoutIntensity.trim()
     ) {
       return false;
     }
@@ -67,7 +67,8 @@ function WorkoutSelectionForm() {
         );
         console.log("Workout data sent successfully:", response);
         setWorkoutData(response.data);
-        setIsModalOpen(true);
+        // setIsModalOpen(true);
+        setCurrentStep(5);
       } catch (error) {
         console.log(error);
         alert("Error sending workout request");
@@ -99,7 +100,7 @@ function WorkoutSelectionForm() {
             {currentStep === 2 &&
               createPortal(
                 <div className="wo-form__portal">
-                  <div className="wo-form__duration-container">
+                  <div className="wo-form__container">
                     <label className="wo-form__label">
                       <h3 className="wo-form__text">
                         Exercise Duration (please provide in minutes only):
@@ -109,12 +110,13 @@ function WorkoutSelectionForm() {
                         name="exerciseDuration"
                         onChange={handleFormDataChange}
                         value={formData.exerciseDuration}
-                        className="wo-form__formfield"
+                        className="wo-form__formfield "
+                        placeholder="minutes"
                       />
                     </label>
                   </div>
 
-                  <div className="wo-form__fitnessLevel-container">
+                  <div className="wo-form__container">
                     <label className="wo-form__label">
                       <h3 className="wo-form__text">Fitness Level:</h3>
                       <select
@@ -140,7 +142,7 @@ function WorkoutSelectionForm() {
                     </label>
                   </div>
 
-                  <div className="wo-form__intensity-container">
+                  <div className="wo-form__container">
                     <label className="wo-form__label">
                       <h3 className="wo-form__text">Workout Intensity:</h3>
                       <select
@@ -265,21 +267,21 @@ function WorkoutSelectionForm() {
               </section>
             )}
           </form>
+          {currentStep === 5 &&
+            createPortal(
+              <section className="workoutdisplay__container">
+                <WorkoutDisplayPortal
+                  onClose={() => {
+                    console.log("Before close:", isModalOpen);
+                    setIsModalOpen(false);
+                    console.log("After close:", isModalOpen);
+                  }}
+                  workoutData={workoutData}
+                />
+              </section>,
+              document.body
+            )}
         </div>
-        {isModalOpen &&
-          createPortal(
-            <section className="workoutdisplay__container">
-              <WorkoutDisplayPortal
-                onClose={() => {
-                  console.log("Before close:", isModalOpen);
-                  setIsModalOpen(false);
-                  console.log("After close:", isModalOpen);
-                }}
-                workoutData={workoutData}
-              />
-            </section>,
-            document.body
-          )}
       </div>
     </>
   );

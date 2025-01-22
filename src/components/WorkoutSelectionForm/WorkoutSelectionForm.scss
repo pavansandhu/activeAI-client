@@ -3,6 +3,8 @@
 @use "../../styles/variables" as *;
 
 .workoutselection__container {
+  position: relative;
+  top: 5rem;
   @include flex-center($direction: row, $justify: center, $align: center);
   margin: 2rem;
 }
@@ -17,29 +19,33 @@
 }
 
 .wo-form__portal {
-  @include flex-center(
-    $direction: column,
-    $justify: space-evenly,
-    $align: center
-  );
-  margin: 1rem;
+  width: 100%;
+  @include flex-center($direction: column, $justify: center, $align: center);
+
   position: relative;
   bottom: -5rem;
 }
 
-.wo-form__duration-container
-  .wo-form__fitnessLevel-container
-  .wo-form__intensity-container {
-  @include flex-center(
-    $direction: column,
-    $justify: space-evenly,
-    $align: center
-  );
+.wo-form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding: 1rem;
+  @include tablet {
+    width: 50%;
+  }
+}
+.wo__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .wo-form__label {
+  width: 100%;
   @include flex-center($direction: column, $justify: start, $align: flex-start);
-  margin: 1rem;
 }
 
 .wo-form__text {
@@ -49,7 +55,7 @@
 }
 
 .wo-form__formfield {
-  width: 75vw;
+  width: 90%;
   height: 5vh;
   margin: 1rem;
   padding: 0 1.5rem;
@@ -58,6 +64,10 @@
   font-family: "Outfit";
   font-weight: 300;
 }
+
+// .wo-form__formfield:invalid {
+//   border: 2px solid red;
+// }
 
 // .wo-form__fitnessLevel-container {
 //   @include flex-center(
@@ -68,7 +78,7 @@
 // }
 
 .wo-form__select {
-  width: 75vw;
+  width: 90%;
   height: 5vh;
   margin: 1rem;
   padding: 0 1.5rem;
@@ -114,7 +124,7 @@ button {
   );
   margin: 1rem;
   position: relative;
-  bottom: -5rem;
+  bottom: 0rem;
 }
 
 .wo-form__label-info {
@@ -137,11 +147,20 @@ button {
   }
 }
 
+.wo__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.wo__form {
+  width: 100%;
+}
 .wo-form__cta {
   @include flex-center($direction: column, $justify: center, $align: center);
   margin: 1rem;
-  position: relative;
-  bottom: -5rem;
 }
 
 .wo-form__workoutDataPreview {
@@ -150,6 +169,7 @@ button {
     $justify: space-evenly,
     $align: center
   );
+  width: 90%;
 }
 
 .wo-form__previewText {
@@ -167,6 +187,12 @@ button {
   width: 15rem;
   padding: 1rem;
   margin: 1rem;
+}
+
+.workoutdisplay__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wo-form__generate-button {
