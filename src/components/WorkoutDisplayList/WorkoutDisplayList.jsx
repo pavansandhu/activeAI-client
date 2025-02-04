@@ -9,9 +9,6 @@ function WorkoutDisplayList(props) {
     if (repetitions !== 0) true;
   }
 
-  // console.log(repetitions);
-  // console.log(intervals);
-
   return (
     <section className="mainset__section">
       <div className="mainset__container">
