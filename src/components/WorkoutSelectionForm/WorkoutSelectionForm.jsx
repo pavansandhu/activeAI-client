@@ -7,6 +7,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import arrow_forward from "../../assets/svg/arrow_forward.svg";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 function WorkoutSelectionForm() {
   const [formData, setFormData] = useState({
     exerciseType: "",
@@ -62,7 +64,7 @@ function WorkoutSelectionForm() {
     if (isFormValid()) {
       try {
         const response = await axios.post(
-          `http://localhost:8080/workout/request`,
+          `${baseURL}/workout/request`,
           formData
         );
         console.log("Workout data sent successfully:", response);
