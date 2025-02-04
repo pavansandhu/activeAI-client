@@ -1,6 +1,3 @@
-import Header from "../../components/Header/Header";
-import { useLocation } from "react-router-dom";
-import WorkoutDisplayList from "../../components/WorkoutDisplayList/WorkoutDisplayList";
 import { createPortal } from "react-dom";
 import { useState } from "react";
 import WorkoutDisplayPortal from "../../components/WorkoutDisplayPortal/WorkoutDisplayPortal";
