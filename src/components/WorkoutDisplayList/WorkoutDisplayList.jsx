@@ -1,4 +1,4 @@
-import "./WorkoutDisplayList.scss";
+import ".WorkoutDisplayList.scss";
 
 function WorkoutDisplayList(props) {
   console.log(props);
