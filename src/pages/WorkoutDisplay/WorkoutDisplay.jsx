@@ -1,4 +1,3 @@
-// import "WorkoutDisplay.scss";
 import Header from "../../components/Header/Header";
 import { useLocation } from "react-router-dom";
 import WorkoutDisplayList from "../../components/WorkoutDisplayList/WorkoutDisplayList";
